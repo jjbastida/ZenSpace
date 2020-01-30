@@ -3,16 +3,16 @@ import { namedColors } from '../theme/colours';
 import {TypedContent} from '../components/singularComponents/Typography'
 import { PageHelm } from '../components/singularComponents/PageHelm';
 
-export function Login() {
+export function SignUp() {
       const pageData={
-		title: 'Login',
-		description: 'Login page.',
+		title: 'SignUp',
+		description: 'SignUp page.',
 	};
       return (
             <>
                   <PageHelm pageData={pageData}/>
                   <TypedContent type='h2'>
-                        Login
+                        SignUp
                   </TypedContent>
             </>
       )
