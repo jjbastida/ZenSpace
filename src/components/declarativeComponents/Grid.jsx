@@ -2,57 +2,48 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-export const GRID = styled.div`
+const masterGrid = (childSpacing, stringStyle) => (`
 	max-width: 1920px;
-	display: grid;
 	margin: auto;
-	grid-template-columns: repeat(12, 1fr);
-	grid-gap: 2%;
-	padding-left: 4rem;
-	padding-right: 4rem;
+	padding-left: 3em;
+	padding-right: 3rem;
 	@media (max-width: 959.9px) {
-	grid-template-columns: repeat(6, 1fr);
-	padding-left: 2rem;
-	padding-right: 2rem;
-	& > * {
-				grid-column: 1 / span 12
-		}
+		padding-left: 2.4rem;
+		padding-right: 2.4rem;
 	}
-	${({childSpacing})=>
-	(childSpacing ? `
+	${childSpacing ? `
 		& > * {
 			margin-right: ${childSpacing} !important;
 		}
 		& > *:last-child {
 			margin-right: 0 !important;
 		}
-	`: '')}
-	${({stringStyle}) => (stringStyle)}
+	`: ''}
+	${stringStyle}
+`);
+
+export const GRID = styled.div`
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+	grid-gap: 2%;
+	@media (max-width: 959.9px) {
+		grid-template-columns: repeat(6, 1fr);
+		& > * {
+		grid-column: 1 / span 12
+		}
+	}
+	${({childSpacing, stringStyle}) => masterGrid(childSpacing, stringStyle)}
 `;
 
 export const FLEX_GRID = styled.div`
-	max-width: 1920px;
 	display: flex;
 	flex-direction: ${({ direction }) => direction || 'row'};
-	padding-left: 4rem;
-	padding-right: 4rem;
 	@media (max-width: 959.9px) {
-	padding-left: 2rem;
-	padding-right: 2rem;
 		& > * {
 			width: 100%
 		}
 	}
-	${({childSpacing})=>
-	(childSpacing ? `
-		& > * {
-			margin-right: ${childSpacing} !important;
-		}
-		& > *:last-child {
-			margin-right: 0 !important;
-		}
-	`: '')}
-	${({stringStyle}) => (stringStyle)}
+	${({childSpacing, stringStyle}) => masterGrid(childSpacing, stringStyle)}
 `;
 
 export const NAKED_FLEX_GRID = styled.div`
@@ -73,7 +64,7 @@ export const NAKED_FLEX_GRID = styled.div`
 
 export function Grid({type, children, ...other}) {
       switch (type) {
-            case 'container':
+            case 'grid':
                   return (
                         <GRID {...other}>
                             {children}
@@ -97,11 +88,11 @@ export function Grid({type, children, ...other}) {
 }
 
 Grid.defaultProps = {
-	  type: 'container',
+	  type: 'grid',
 	  stringStyle: '',
 	  childSpacing: '',
 };
 
 Grid.propTypes = {
-      type: PropTypes.oneOf(['item', 'container']),
+      type: PropTypes.oneOf(['grid', 'flex', 'naked-flex']),
 };

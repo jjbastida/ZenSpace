@@ -3,7 +3,7 @@ import { Routing } from './Routing';
 import { lightTheme } from './theme/lightTheme';
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import Helmet from 'react-helmet';
-import { Navigation } from './components/compoundComponents/Navigation';
+import { Navigation, ContentSkip } from './components/compoundComponents';
 
 export default function App() {
 	const theme = true;
@@ -19,6 +19,7 @@ export default function App() {
 				<title>Generic Title</title>
 				<meta name='description' content='LoremIpsum' />
 			</Helmet>
+			<ContentSkip />
 			<Navigation />
 			<Routing />
 		</ThemeProvider>

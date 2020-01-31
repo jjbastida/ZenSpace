@@ -1,19 +1,11 @@
-import React from 'react';
-import { namedColors } from '../theme/colours';
-import {TypedContent} from '../components/singularComponents/Typography'
-import { PageHelm } from '../components/singularComponents/PageHelm';
+import React from "react";
+import { TypedContent, PageHelm } from "../components/declarativeComponents";
 
-export function SignUp() {
-      const pageData={
-		title: 'SignUp',
-		description: 'SignUp page.',
-	};
-      return (
-            <>
-                  <PageHelm pageData={pageData}/>
-                  <TypedContent type='h2'>
-                        SignUp
-                  </TypedContent>
-            </>
-      )
+export function SignUp({pageData}) {
+  return (
+    <>
+      <PageHelm pageData={pageData} />
+      <TypedContent type="h2">SignUp</TypedContent>
+    </>
+  );
 }

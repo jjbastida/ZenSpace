@@ -94,6 +94,6 @@ Button.defaultProps = {
 };
 
 Button.propTypes = {
-      type: PropTypes.oneOf(['h1', 'h2', 'h3', 'h4', 'p']),
+      type: PropTypes.oneOf(['filled', 'outlined']),
       color: PropTypes.string,
 };
