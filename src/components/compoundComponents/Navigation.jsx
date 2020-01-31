@@ -9,27 +9,25 @@ const DROPSHADOW_HEADER = styled.div`
 `;
 
 export function Navigation() {
-  return (
-    <DROPSHADOW_HEADER>
-      <Grid
-        type="flex"
-        stringStyle={`
-            align-items: flex-start;
-            justify-content: space-between;
-        `}
-      >
-        <TypedContent variant="h3">ZenDen</TypedContent>
-        <Grid type="naked-flex" childSpacing="2rem">
-          <Button href="/login" type="outlined">
-            {" "}
-            Login{" "}
+	return (
+		<DROPSHADOW_HEADER>
+			<Grid
+				type="flex"
+				stringStyle={`
+            	align-items: flex-start;
+            	justify-content: space-between;
+        	`}
+			>
+				<TypedContent variant="h3">ZenDen</TypedContent>
+				<Grid type="naked-flex" childSpacing="2rem">
+					<Button href="/login" type="outlined">
+						Login
           </Button>
-          <Button href="/sign-up" type="filled">
-            {" "}
-            Sign Up{" "}
+					<Button href="/sign-up" type="filled">
+						Sign Up
           </Button>
-        </Grid>
-      </Grid>
-    </DROPSHADOW_HEADER>
-  );
+				</Grid>
+			</Grid>
+		</DROPSHADOW_HEADER>
+	);
 }
