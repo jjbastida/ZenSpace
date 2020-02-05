@@ -35,7 +35,7 @@ export const H1 = styled.h1`
 
 export const H2 = styled.h2`
   ${({ stringStyle }) => masterTypography(stringStyle)}
-  font-weight: 700;
+  font-weight: 800;
   color: ${({ theme, color }) => color || theme.textPrimary};
 `;
 

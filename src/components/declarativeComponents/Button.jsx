@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import { MediaSmall, MediaLarge, Media4KUp } from "../helpers/mediaQueries";
+import { enterKeyIsPressed } from "../helpers/keydown";
 
 const masterButton = () => `
 	display: block;
@@ -14,7 +15,8 @@ const masterButton = () => `
 	font-size: 1.6rem;
   text-decoration: none;
   cursor: pointer;
-	border-radius: 1rem;
+  border-radius: 1rem;
+  transition: color ease 400ms, border ease 400ms, background-color ease 400ms, transform ease 400ms, box-shadow ease 400ms; 
 	${Media4KUp} {
 		font-size: 1.8rem;
     padding: 1.6rem 2.6rem;
@@ -29,65 +31,94 @@ const masterButton = () => `
 `;
 
 export const FILLED = styled.button`
-  ${masterButton()}
+  ${masterButton()};
   color: #FFFFFF;
   background-color: ${({ theme }) => theme.textPrimary};
+  border: 1px solid ${({ theme }) => theme.textPrimary};
+  box-shadow: 0px 0px 0px rgba(215, 132, 38, 0);
+  &:hover {
+	  color: #FFFFFF;
+	  border-color: #56688F;
+    background-color: #56688F;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 7px rgba(215, 132, 38, 0.2);
+  }
+  &:focus {
+    outline: none;
+	  color: #FFFFFF;
+	  border-color: #3F5FA6;
+    background-color: #3F5FA6;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 7px rgba(215, 132, 38, 0.3);
+  }
+  &:active {
+    color: #FFFFFF;
+	  border-color: #313B52;
+    background-color: #313B52;
+    transform: translateY(1px);
+    box-shadow: 0px 4px 7px rgba(215, 132, 38, 0);
+  }
 `;
 
 export const OUTLINED = styled.button`
-	${masterButton()}
-	  color: ${({ theme }) => theme.textPrimary};
-	  border: 1px solid ${({ theme }) => theme.textPrimary};
+	${masterButton()};
+  color: ${({ theme }) => theme.textPrimary};
+  border: 1px solid ${({ theme }) => theme.textPrimary};
+  box-shadow: 0px 0px 0px rgba(215, 132, 38, 0);
+  &:hover {
+    background-color: #FFEEDB;
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 7px rgba(215, 132, 38, 0.2);
+  }
+  &:focus {
+    outline: none;
+    background-color: #FFF;
+    color: #3F5FA6;
+    border-color: #3F5FA6;
+    transform: translateY(-3px);
+    box-shadow: 0px 4px 7px rgba(215, 132, 38, 0.3);
+  }
+  &:active {
+    background-color: #F3B976;
+  color: ${({ theme }) => theme.textPrimary};
+  border-color: ${({ theme }) => theme.textPrimary};
+    transform: translateY(1px);
+    box-shadow: 0px 4px 7px rgba(215, 132, 38, 0);
+  }
 `;
 
-export const B_LINK_FILLED = styled.a`
-  ${masterButton()}
-  color: #FFFFFF;
-  background-color: ${({ theme }) => theme.textPrimary};
-`;
+export function Button({ type, href, target, theme, children, buttonProps, onClick, ...other }) {
+  const clickBlur = ({ target }) => {
+    onClick();
+    target.blur();
+  };
 
-export const B_LINK_OUTLINED = styled.a`
-      ${masterButton()}
-	  color: ${({ theme }) => theme.textPrimary};
-	  border: 1px solid ${({ theme }) => theme.textPrimary};
-`;
-
-export function Button({ type, href, target, theme, children, buttonProps, ...other }) {
-  if (!href) {
-    switch (type) {
-      case "filled":
-        return <FILLED {...other}>{children}</FILLED>;
-      case "outlined":
-        return <OUTLINED {...other}>{children}</OUTLINED>;
-      default:
-        return <FILLED {...other}>{children}</FILLED>;
-    }
-  } else {
-    switch (type) {
-      case "filled":
-        return (
-          <B_LINK_FILLED href={href} {...other}>
-            {children}
-          </B_LINK_FILLED>
-        );
-      case "outlined":
-        return (
-          <B_LINK_OUTLINED href={href} {...other}>
-            {children}
-          </B_LINK_OUTLINED>
-        );
-      default:
-        return (
-          <B_LINK_FILLED href={href} {...other}>
-            {children}
-          </B_LINK_FILLED>
-        );
-    }
+  switch (type) {
+    case "filled":
+      return <FILLED
+        {...other}
+        onClick={(event) => clickBlur(event)}
+        as={!href ? 'button' : 'a'}
+        href={href || ''}
+        onKeyDown={(event) => (enterKeyIsPressed(event) && clickBlur(event))}
+      >
+        {children}</FILLED>;
+    case "outlined":
+      return <OUTLINED
+        {...other}
+        onClick={(event) => clickBlur(event)}
+        as={!href ? 'button' : 'a'}
+        href={href || ''}
+        onKeyDown={(event) => (enterKeyIsPressed(event) && clickBlur(event))}
+      >
+        {children}</OUTLINED>;
+    default:
+      return null
   }
 }
 
 Button.defaultProps = {
-  type: "p"
+  type: "filled"
 };
 
 Button.propTypes = {
