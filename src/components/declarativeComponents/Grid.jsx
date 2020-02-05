@@ -34,7 +34,8 @@ export const GRID = styled.div`
 	${MediaSmall} {
 		grid-template-columns: repeat(6, 1fr);
 		& > * {
-		grid-column: 1 / span 12
+		grid-column: 1 / span 6 !important;
+		margin-bottom: 3rem;
 		}
 	}
 	${({ childSpacing, stringStyle }) => masterGrid(childSpacing, stringStyle)}
@@ -67,6 +68,10 @@ export const NAKED_FLEX_GRID = styled.div`
 	${({ stringStyle }) => (stringStyle)}
 `;
 
+export const NAKED_DIV = styled.div`
+	${({ stringStyle }) => (stringStyle)}
+`;
+
 export function Grid({ type, children, ...other }) {
 	switch (type) {
 		case 'grid':
@@ -86,6 +91,12 @@ export function Grid({ type, children, ...other }) {
 				<NAKED_FLEX_GRID {...other}>
 					{children}
 				</NAKED_FLEX_GRID>
+			)
+		case 'div':
+			return (
+				<NAKED_DIV {...other}>
+					{children}
+				</NAKED_DIV>
 			)
 		default:
 			return null;

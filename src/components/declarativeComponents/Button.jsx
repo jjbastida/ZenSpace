@@ -5,25 +5,26 @@ import { MediaSmall, MediaLarge, Media4KUp } from "../helpers/mediaQueries";
 
 const masterButton = () => `
 	display: block;
-	padding: 1rem 2.4rem 0.8rem;
+	padding: 1.4rem 2.4rem;
 	margin: 0;
 	font-weight:600;
 	white-space: nowrap;
 	background: none;
 	border: none;
 	font-size: 1.6rem;
-	text-decoration: none;
+  text-decoration: none;
+  cursor: pointer;
 	border-radius: 1rem;
 	${Media4KUp} {
 		font-size: 1.8rem;
-		padding: 1.6rem 2.6rem 1.4rem;
+    padding: 1.6rem 2.6rem;
 	}
 	${MediaLarge} {
 		font-size: 1.4rem;
 	}
 	${MediaSmall} {
-		font-size: 1.2rem;
-		padding: 0.8rem 2rem 0.6rem;
+    font-size: 1.2rem;
+    padding: 1rem 2rem;
 	}
 `;
 
@@ -59,7 +60,7 @@ export function Button({ type, href, target, theme, children, buttonProps, ...ot
       case "outlined":
         return <OUTLINED {...other}>{children}</OUTLINED>;
       default:
-        return null;
+        return <FILLED {...other}>{children}</FILLED>;
     }
   } else {
     switch (type) {
@@ -76,7 +77,11 @@ export function Button({ type, href, target, theme, children, buttonProps, ...ot
           </B_LINK_OUTLINED>
         );
       default:
-        return null;
+        return (
+          <B_LINK_FILLED href={href} {...other}>
+            {children}
+          </B_LINK_FILLED>
+        );
     }
   }
 }

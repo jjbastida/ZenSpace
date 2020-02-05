@@ -6,5 +6,5 @@ export const lightTheme = {
       textPrimary: namedColors.LIGHTS.cobalt,
       textSecondary: namedColors.LIGHTS.shade,
       textTertiary: '#FFFFFF',
-      background: namedColors.HARVEST.background,
+      background: namedColors.HARVEST.light,
 };
