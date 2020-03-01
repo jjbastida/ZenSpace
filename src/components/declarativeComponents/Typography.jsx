@@ -3,71 +3,89 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 import { MediaSmall, Media4KUp, MediaLarge, MediaMedium } from "../helpers/mediaQueries";
 
-const masterTypography = (stringStyle) => `
+const masterTypography = `
 	padding: 0;
 	margin: 0;
 	font-weight:400;
 	${MediaSmall} {
 		max-width: 52rem;
   }
-  ${stringStyle}
 `;
 
 export const H1 = styled.h1`
-  ${({ stringStyle }) => masterTypography(stringStyle)}
+  ${masterTypography}
   font-weight: 700;
   color: ${({ theme, color }) => color || theme.textPrimary};
-  font-size: 6.4rem;
+  font-size: 6rem;
   ${Media4KUp} {
-    font-size: 6.8rem;
+    font-size: 6.4rem;
   }
   ${MediaLarge} {
-    font-size: 6rem;
+    font-size: 5.6rem;
   }
   ${MediaMedium} {
-    font-size: 5.6rem;
+    font-size: 5.2rem;
   }
   ${MediaSmall} {
     font-size: 4.8rem;
     max-width: 52rem;
+    ${({ stringStyle }) => (stringStyle)}
   }
 `;
 
 export const H2 = styled.h2`
-  ${({ stringStyle }) => masterTypography(stringStyle)}
-  font-weight: 800;
+  ${masterTypography}
+  font-weight: 700;
+  font-size: 5.2rem;
+  ${Media4KUp} {
+    font-size: 5.6rem;
+  }
+  ${MediaLarge} {
+    font-size: 4.8rem;
+  }
+  ${MediaMedium} {
+    font-size: 4.4rem;
+  }
+  ${MediaSmall} {
+    font-size: 4rem;
+    max-width: 52rem;
+  }
   color: ${({ theme, color }) => color || theme.textPrimary};
+  ${({ stringStyle }) => (stringStyle)}
 `;
 
 export const H3 = styled.h3`
-  ${({ stringStyle }) => masterTypography(stringStyle)}
+  ${masterTypography}
   font-weight: 400;
   text-transform: uppercase;
   color: ${({ theme, color }) => color || theme.textPrimary};
+    ${({ stringStyle }) => (stringStyle)}
 `;
 
 export const H4 = styled.h4`
-      font-weight: 400;
-      ${({ stringStyle }) => masterTypography(stringStyle)}
-      color: ${({ theme, color }) => color || theme.textPrimary};
-      font-size: 2.4rem;
-      line-height: 1.5
-  ${Media4KUp} {
-    font-size: 2.8rem;
-  }
-  ${MediaMedium} {
+  ${masterTypography}
+    font-weight: 400;
+    color: ${({ theme, color }) => color || theme.textPrimary};
     font-size: 2rem;
-  }
-  ${MediaSmall} {
-    font-size: 1.8rem;
-    max-width: 52rem;
-  }
+    line-height: 1.5
+    ${Media4KUp} {
+        font-size: 2.8rem;
+    }
+    ${MediaMedium} {
+        font-size: 1.8rem;
+    }
+    ${MediaSmall} {
+        font-size: 1.6rem;
+        max-width: 52rem;
+    }
+    ${({ stringStyle }) => (stringStyle)}
 `;
 
 export const P = styled.p`
-  ${({ stringStyle }) => masterTypography(stringStyle)}
+  ${masterTypography}
   margin: 0 0 1rem 0;
   color: ${({ theme, color }) => color || theme.textPrimary};
+  ${({ stringStyle }) => (stringStyle)}
 `;
 
 export function TypedContent({ type, children, ...other }) {

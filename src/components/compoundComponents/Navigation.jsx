@@ -18,9 +18,14 @@ export function Navigation() {
             	justify-content: space-between;
         	`}
 			>
-				<TypedContent variant="h3">ZenDen</TypedContent>
+				<a href='/'>
+					<TypedContent type="h4">
+						ZenDen
+					</TypedContent>
+				</a>
 				<Grid
-					type="naked-flex"
+					type="flex"
+					naked={true}
 					childSpacing="2rem"
 					stringStyle='& > * {padding: 0.8rem 2.4rem 0.6rem}'
 				>

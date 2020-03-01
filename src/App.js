@@ -9,7 +9,7 @@ export default function App() {
 	const theme = true;
 	const GlobalStyle = createGlobalStyle`
 	body {
-		background: ${theme ? lightTheme : {}};
+		background: ${theme ? lightTheme.background : {}};
 	}
 	`
 	return (
