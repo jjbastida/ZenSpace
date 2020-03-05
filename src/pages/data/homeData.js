@@ -4,7 +4,7 @@ export const homeData = {
             type: 'banner',
             content: {
                 title: 'A Guide to Making Your Space Yours!',
-                body: 'Ultricies dolor blandit arcu ultrices praesent scelerisque nunc, nisi, nec. Posuere nunc massa sit sit ridiculus ac adipiscing auctor orci.',
+                body: 'Breathe easy with the help of guided mindful sessions, to balance your living space and create a purposeful place to call your own.',
                 imagePath: 'https://via.placeholder.com/350',
                 button: {
                     buttonLink: '',
@@ -17,15 +17,15 @@ export const homeData = {
             content: {
                 blocks: [
                     {
-                        title: 'Ultricies dolor blandit arcu ultrices praesent scelerisque nunc, nisi, nec.',
+                        title: 'Be inspired as you move through the 8 different personalized mindful exercises.',
                         imagePath: 'https://via.placeholder.com/350x200'
                     },
                     {
-                        title: 'Ultricies dolor blandit arcu ultrices praesent scelerisque nunc, nisi, nec.',
+                        title: 'Use a variety of different philosophies to help make your space feel more at peace.',
                         imagePath: 'https://via.placeholder.com/350x200'
                     },
                     {
-                        title: 'Ultricies dolor blandit arcu ultrices praesent scelerisque nunc, nisi, nec.',
+                        title: 'Create a beautiful space by observing, prioritizing, and/or parting ways with objects in a healthy way.',
                         imagePath: 'https://via.placeholder.com/350x200'
                     },
                 ],
@@ -35,7 +35,7 @@ export const homeData = {
             type: 'two-column',
             content: {
                 title: 'At your pace; whenever and wherever!',
-                body: 'Ultricies dolor blandit arcu ultrices praesent scelerisque nunc, nisi, nec. Posuere nunc massa sit sit ridiculus ac adipiscing auctor orci.',
+                body: 'Keeping your space at the forefront, explore our 8 different living space adjustment activities to help balance your space. Creating an ideal space means keeping the objects you love and being able to part ways with the things you may no longer notice, appreciate, or use.',
                 imagePath: 'https://via.placeholder.com/350',
             },
         },
