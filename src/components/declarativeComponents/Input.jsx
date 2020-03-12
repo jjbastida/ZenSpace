@@ -5,50 +5,51 @@ import { FILLED } from './Button';
 
 export const CHECKBOX = styled.input`
 
-	${ ({ stringStyle }) => (stringStyle)}
+	${ ({ stringstyle }) => (stringstyle)}
 `;
 
 export const DATE = styled.input`
 
-	${ ({ stringStyle }) => (stringStyle)}
+	${ ({ stringstyle }) => (stringstyle)}
 `;
 
 export const TIME = styled.input`
 
-	${ ({ stringStyle }) => (stringStyle)}
+	${ ({ stringstyle }) => (stringstyle)}
 `;
 
 export const TEXT = styled.input`
     border: 1px solid #CCCCDD;
     padding: 1.6rem 1.4rem;
     font-size: 1.8rem;
-  color: ${({ theme }) => theme.textPrimary || '#40405A'};
+    border-radius: 0.4rem;
+    color: ${({ theme }) => theme.textPrimary || '#40405A'};
     &::placeholder {
         color: #CCCCDD;
     }
 	${({ label }) => (label ? 'margin-bottom: 0.6rem !important' : '')};
-	${({ stringStyle }) => (stringStyle)}
+	${({ stringstyle }) => (stringstyle)}
 `;
 
 export const RADIO = styled.input`
 
-	${({ stringStyle }) => (stringStyle)}
+	${({ stringstyle }) => (stringstyle)}
 `;
 
 export const FILE = styled.input`
 
-	${({ stringStyle }) => (stringStyle)}
+	${({ stringstyle }) => (stringstyle)}
 `;
 
 export const SUBMIT = styled.input`
 
-	${({ stringStyle }) => (stringStyle)}
+	${({ stringstyle }) => (stringstyle)}
 `;
 
 export const LABEL = styled.label`
     font-size: 1.4rem;
     color: ${({ theme }) => theme.textPrimary || '#40405A'};
-	${({ labelStringStyle }) => (labelStringStyle)}
+	${({ labelstringstyle }) => (labelstringstyle)}
 `;
 
 export function Input({ type, label, value, children, ...other }) {
@@ -106,7 +107,7 @@ export function Input({ type, label, value, children, ...other }) {
                 return (
                     <RADIO
                         type={type}
-                        label={label} labelStringStyle
+                        label={label} labelstringstyle
                         id={label ? label : null}
                         {...other}
                     />
@@ -140,16 +141,16 @@ export function Input({ type, label, value, children, ...other }) {
 Input.defaultProps = {
     type: 'grid',
     naked: false,
-    stringStyle: '',
-    labelStringStyle: '',
+    stringstyle: '',
+    labelstringstyle: '',
     childSpacing: '',
 };
 
 Input.propTypes = {
     type: PropTypes.oneOf(['checkbox', 'date', 'time', 'text', 'radio', 'email', 'file', 'password', 'submit']),
     naked: PropTypes.bool,
-    stringStyle: PropTypes.string,
-    labelStringStyle: PropTypes.string,
+    stringstyle: PropTypes.string,
+    labelstringstyle: PropTypes.string,
     childSpacing: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     childrenSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

@@ -8,13 +8,13 @@ export function SignUp({ pageData }) {
     return (
         <Grid
             type='grid'
-            stringStyle={`
+            stringstyle={`
                 padding: 7rem 0;
             `}
         >
             <PageHelm pageData={pageData} />
             <CARD
-                stringStyle={`
+                stringstyle={`
                     grid-column: 4 / span 6;
                     ${Media4KUp} {
                         grid-column: 5 / span 4;
@@ -23,7 +23,7 @@ export function SignUp({ pageData }) {
             >
                 <Grid
                     type='form'
-                    stringStyle={`
+                    stringstyle={`
                     flex-wrap: wrap;
 					& > * {
                         width: 100%;
@@ -36,7 +36,7 @@ export function SignUp({ pageData }) {
                 >
                     <TypedContent
                         type='h2'
-                        stringStyle={`
+                        stringstyle={`
                             font-size: 4rem;
                             ${Media4KUp} {
                                 font-size: 4.4rem;
@@ -74,8 +74,8 @@ export function SignUp({ pageData }) {
                         type='submit'
                         value='Sign Up'
                         bgColor='white'
-                        stringStyle='max-width: 33%'
-                        labelStringStyle='margin-bottom: 3rem'
+                        stringstyle='max-width: 33%'
+                        labelstringstyle='margin-bottom: 3rem'
                     />
                     <TypedContent type='body2'>
                         By pressing sign up you are agreeing to the Terms &amp; Conditions and the secure storage and encryption of your user information.

@@ -2,10 +2,18 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import { routeObject } from "./routes";
+import styled from "styled-components";
+
+const MAIN = styled.main`
+		background: ${({ theme }) => theme ? theme.background : '#FFCF99'};
+    min-height:100vh;
+    padding-top: 4rem;
+    box-sizing: border-box;
+`;
 
 export function Routing() {
   return (
-    <main>
+    <MAIN>
       <Router>
         <Switch>
           {routeObject.map(({ slug, exact, name, pageData, Component }) => (
@@ -19,6 +27,6 @@ export function Routing() {
           <Route component={NotFound} status={404} />
         </Switch>
       </Router>
-    </main>
+    </MAIN>
   );
 }

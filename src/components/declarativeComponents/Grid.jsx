@@ -12,7 +12,7 @@ const childSpacingStyles = (childSpacing) => (`
 	}
 `);
 
-const masterGrid = (childSpacing, stringStyle) => `
+const masterGrid = (childSpacing, stringstyle) => `
 	max-width: 1920px;
 	margin: auto;
 	padding-left: 4.6rem;
@@ -26,7 +26,7 @@ const masterGrid = (childSpacing, stringStyle) => `
 		padding-right: 2.4rem;
 	}
 	${childSpacing ? childSpacingStyles(childSpacing) : ''}
-	${stringStyle}
+	${stringstyle}
 `;
 
 export const GRID = styled.div`
@@ -45,7 +45,7 @@ export const GRID = styled.div`
 			margin-bottom: 3rem;
 		}
 	}
-	${ ({ naked, childSpacing, stringStyle }) => (!naked ? masterGrid(childSpacing, stringStyle) : stringStyle + childSpacingStyles(childSpacing))}
+	${ ({ naked, childSpacing, stringstyle }) => (!naked ? masterGrid(childSpacing, stringstyle) : stringstyle + childSpacingStyles(childSpacing))}
 `;
 
 export const FLEX_GRID = styled.div`
@@ -56,11 +56,11 @@ export const FLEX_GRID = styled.div`
 				width: 100%
 			}
 	}
-	${ ({ naked, childSpacing, stringStyle }) => (!naked ? masterGrid(childSpacing, stringStyle) : stringStyle + childSpacingStyles(childSpacing))}
+	${ ({ naked, childSpacing, stringstyle }) => (!naked ? masterGrid(childSpacing, stringstyle) : stringstyle + childSpacingStyles(childSpacing))}
 `;
 
 export const NAKED_DIV = styled.div`
-	${ ({ stringStyle }) => (stringStyle)}
+	${ ({ stringstyle }) => (stringstyle)}
 `;
 
 export function Grid({ type, children, naked, ...other }) {
@@ -110,14 +110,14 @@ export function Grid({ type, children, naked, ...other }) {
 Grid.defaultProps = {
 	type: 'grid',
 	naked: false,
-	stringStyle: '',
+	stringstyle: '',
 	childSpacing: '',
 };
 
 Grid.propTypes = {
 	type: PropTypes.oneOf(['grid', 'flex', 'div', 'form']),
 	naked: PropTypes.bool,
-	stringStyle: PropTypes.string,
+	stringstyle: PropTypes.string,
 	childSpacing: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 	childrenSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

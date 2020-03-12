@@ -14,7 +14,7 @@ const getBgColor = (bgColor) => {
     return color;
 }
 
-const masterButton = (stringStyle) => `
+const masterButton = (stringstyle) => `
 	display: block;
 	padding: 1.4rem 2.4rem;
 	margin: 0;
@@ -45,11 +45,11 @@ const masterButton = (stringStyle) => `
     &:active {
         transition-duration: 200ms;
     }
-    ${stringStyle}
+    ${stringstyle}
 `;
 
 export const FILLED = styled.button`
-  ${({ stringStyle }) => masterButton(stringStyle)};
+  ${({ stringstyle }) => masterButton(stringstyle)};
   color: #FFFFFF;
   background-color: ${({ theme }) => theme.textPrimary};
   border: 1px solid ${({ theme }) => theme.textPrimary};
@@ -78,7 +78,7 @@ export const FILLED = styled.button`
 `;
 
 export const OUTLINED = styled.button`
-    ${({ stringStyle }) => masterButton(stringStyle)};
+    ${({ stringstyle }) => masterButton(stringstyle)};
         color: ${({ theme }) => theme.textPrimary};
         border: 1px solid ${({ theme }) => theme.textPrimary};
         box-shadow: 0px 0px 0px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0);
@@ -137,7 +137,7 @@ export function Button({ type, href, target, theme, children, buttonProps, onCli
 
 Button.defaultProps = {
     type: 'filled',
-    stringStyle: '',
+    stringstyle: '',
 };
 
 Button.propTypes = {
