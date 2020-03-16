@@ -49,7 +49,7 @@ export function Home({ pageData }) {
 			stringstyle={`
 			padding-top: 7rem;
 			padding-bottom: 7rem;
-			background-color: ${theme.primary.background};
+			background-color: ${theme.backgroundSecondary};
 			`}
 			childrenSize='4'
 			ref={secondSection}
@@ -98,7 +98,7 @@ export function Home({ pageData }) {
 			stringstyle={`
 				padding-top: 7rem;
 				padding-bottom: 7rem;
-				background-color: ${theme.primary.background};
+				background-color: ${theme.backgroundSecondary};
 			`}
 			type='grid'
 		>

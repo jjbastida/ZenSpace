@@ -5,7 +5,7 @@ import { routeObject } from "./routes";
 import styled from "styled-components";
 
 const MAIN = styled.main`
-		background: ${({ theme }) => theme ? theme.background : '#FFCF99'};
+		background: ${({ theme }) => theme ? theme.background : '#FAFAFA'};
     min-height:100vh;
     padding-top: 4rem;
     box-sizing: border-box;

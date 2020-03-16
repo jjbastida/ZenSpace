@@ -42,6 +42,7 @@ export function Link({ href, target, theme, children, ...other }) {
     return <LINK
         {...other}
         href={href || ''}
+        target={target || '_self'}
     >
         {children}
     </LINK>;

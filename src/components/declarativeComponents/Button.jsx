@@ -5,7 +5,7 @@ import { MediaSmall, MediaLarge, Media4KUp } from '../helpers/mediaQueries';
 import { enterKeyIsPressed } from '../helpers/keydown';
 
 const getBgColor = (bgColor) => {
-    let color = '215, 132, 38';
+    let color = '226, 222, 226';
 
     if (bgColor === 'white') {
         color = '136, 136, 159';
@@ -59,14 +59,14 @@ export const FILLED = styled.button`
 	border-color: #56688F;
     background-color: #56688F;
     transform: translateY(-2px);
-    box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0.2);
+    box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0.3);
   }
   &:focus {
 	color: #FFFFFF;
 	border-color: #3F5FA6;
     background-color: #3F5FA6;
     transform: translateY(-3px);
-    box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0.3);
+    box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0.5);
   }
   &:active {
     color: #FFFFFF;
@@ -80,22 +80,23 @@ export const FILLED = styled.button`
 export const OUTLINED = styled.button`
     ${({ stringstyle }) => masterButton(stringstyle)};
         color: ${({ theme }) => theme.textPrimary};
+        background-color: #FFF;
         border: 1px solid ${({ theme }) => theme.textPrimary};
         box-shadow: 0px 0px 0px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0);
     &:hover {
-        background-color: #FFEEDB;
+        background-color: rgba(47,59,82,0.1);
         transform: translateY(-2px);
-        box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0.2);
+        box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0.3);
     }
     &:focus {
         background-color: #FFF;
         color: #3F5FA6;
         border-color: #3F5FA6;
         transform: translateY(-3px);
-        box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0.3);
+        box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0.5);
     }
     &:active {
-        background-color: #F3B976;
+        background-color: rgba(47,59,82,0.3);
         color: ${({ theme }) => theme.textPrimary};
         border-color: ${({ theme }) => theme.textPrimary};
         transform: translateY(1px);

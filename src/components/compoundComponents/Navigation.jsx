@@ -10,7 +10,7 @@ const DROPSHADOW_HEADER = styled.header`
   	padding-top: 1rem;
   	padding-bottom: 1rem;
   	background: ${({ theme }) => theme.background};
-  	box-shadow: 0px 4px 7px rgba(215, 132, 38, 0.2);
+  	box-shadow: 0px 4px 7px rgba(226, 222, 226, 0.2);
 `;
 
 
@@ -21,7 +21,10 @@ export function Navigation() {
 				type="flex"
 				stringstyle={`
             	align-items: center;
-            	justify-content: space-between;
+				justify-content: space-between;
+				& > * {
+					width: auto !important;
+				}
         	`}
 			>
 				<TypedContent
@@ -49,11 +52,11 @@ export function Navigation() {
 						}
 						&:focus {
                             outline: none;
-                            background-color: rgba(250,250,250,0.3);
+                            background-color: rgba(47,59,82,0.1);
 							transition: background-color 200ms ease;
 						}
 						&:hover {
-                            background-color: rgba(250,250,250,0.15);
+                            background-color: rgba(47,59,82,0.05);
 						}
 						&:hover > span {
 							visibility: visible;
