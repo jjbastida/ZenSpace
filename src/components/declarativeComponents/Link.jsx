@@ -3,20 +3,27 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { MediaSmall, MediaLarge, Media4KUp } from '../helpers/mediaQueries';
 
-const masterLink = (stringStyle) => `
-	display: block;
-	padding: 1.4rem 2.4rem;
-	margin: 0;
-	font-weight:600;
+export const LINK = styled.a`
+    color: #FFFFFF;
+	padding: 0.2rem 0.3rem;
+	margin: 0 0.2rem;
 	white-space: nowrap;
 	background: none;
 	border: none;
 	font-size: 1.6rem;
-    text-decoration: none;
+    text-decoration: underline;
     cursor: pointer;
     text-align: center;
-    border-radius: 1rem;
-    transition: color ease 400ms, border ease 400ms, background-color ease 400ms, transform ease 400ms, box-shadow ease 400ms;
+    border-radius: 0.4rem;
+    transition: color ease 200ms, background-color ease 200ms;
+    &:focus {
+        outline: none;
+        background-color: rgba(250,250,250,0.3);
+        transition: background-color 100ms ease;
+    }
+    &:hover {
+        background-color: rgba(250,250,250,0.15);
+    }
 	${Media4KUp} {
 		font-size: 1.8rem;
         padding: 1.6rem 2.6rem;
@@ -28,48 +35,14 @@ const masterLink = (stringStyle) => `
         font-size: 1.2rem;
         padding: 1rem 2rem;
     }
-    &:focus {
-        outline: none;
-    }
-    &:active {
-        transition-duration: 200ms;
-    }
-    ${stringStyle}
-`;
-
-export const LINK = styled.button`
-  ${({ stringStyle }) => masterButton(stringStyle)};
-  color: #FFFFFF;
-  background-color: ${({ theme }) => theme.textPrimary};
-  border: 1px solid ${({ theme }) => theme.textPrimary};
-  box-shadow: 0px 0px 0px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0);
-  &:hover {
-	color: #FFFFFF;
-	border-color: #56688F;
-    background-color: #56688F;
-    transform: translateY(-2px);
-    box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0.2);
-  }
-  &:focus {
-	color: #FFFFFF;
-	border-color: #3F5FA6;
-    background-color: #3F5FA6;
-    transform: translateY(-3px);
-    box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0.3);
-  }
-  &:active {
-    color: #FFFFFF;
-    border-color: #313B52;
-    background-color: #313B52;
-    transform: translateY(1px);
-    box-shadow: 0px 4px 7px rgba(${({ bgColor }) => getBgColor(bgColor)}, 0);
-  }
+    ${({ stringstyle }) => stringstyle};
 `;
 
 export function Link({ href, target, theme, children, ...other }) {
     return <LINK
         {...other}
         href={href || ''}
+        target={target || '_self'}
     >
         {children}
     </LINK>;

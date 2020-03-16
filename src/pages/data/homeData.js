@@ -43,9 +43,9 @@ export const homeData = {
             type: 'one-column',
             content: {
                 title: 'Let’s get started!',
-                body: 'Ultricies dolor blandit arcu ultrices praesent scelerisque nunc, nisi, nec. Posuere nunc massa sit sit ridiculus ac adipiscing auctor orci.',
+                body: 'Work alongside our curated mindful activities to create a radiant and beautiful space for yourself today!',
                 button: {
-                    buttonLink: '/sign-up',
+                    buttonLink: '/sign-up/',
                     buttonText: 'Sign up'
                 },
             },

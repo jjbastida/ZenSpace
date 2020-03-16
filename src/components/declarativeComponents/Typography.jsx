@@ -29,7 +29,7 @@ export const H1 = styled.h1`
   ${MediaSmall} {
     font-size: 4.8rem;
     max-width: 52rem;
-    ${({ stringStyle }) => (stringStyle)}
+    ${({ stringstyle }) => (stringstyle)}
   }
 `;
 
@@ -51,7 +51,7 @@ export const H2 = styled.h2`
     max-width: 52rem;
   }
   color: ${({ theme, color }) => color || theme.textPrimary};
-  ${({ stringStyle }) => (stringStyle)}
+  ${({ stringstyle }) => (stringstyle)}
 `;
 
 export const H3 = styled.h3`
@@ -59,7 +59,7 @@ export const H3 = styled.h3`
   font-weight: 400;
   text-transform: uppercase;
   color: ${({ theme, color }) => color || theme.textPrimary};
-    ${({ stringStyle }) => (stringStyle)}
+    ${({ stringstyle }) => (stringstyle)}
 `;
 
 export const H4 = styled.h4`
@@ -78,14 +78,30 @@ export const H4 = styled.h4`
         font-size: 1.6rem;
         max-width: 52rem;
     }
-    ${({ stringStyle }) => (stringStyle)}
+    ${({ stringstyle }) => (stringstyle)}
 `;
 
 export const P = styled.p`
   ${masterTypography}
   margin: 0 0 1rem 0;
   color: ${({ theme, color }) => color || theme.textPrimary};
-  ${({ stringStyle }) => (stringStyle)}
+  ${({ stringstyle }) => (stringstyle)}
+`;
+
+export const P2 = styled.p`
+  ${masterTypography}
+    margin: 0 0 1rem 0;
+    color: ${({ theme, color }) => color || theme.textPrimary};
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.5
+    ${Media4KUp} {
+        font-size: 1.8rem;
+    }
+    ${MediaMedium} {
+        font-size: 1.4rem;
+    }
+  ${({ stringstyle }) => (stringstyle)}
 `;
 
 export function TypedContent({ type, children, ...other }) {
@@ -100,6 +116,8 @@ export function TypedContent({ type, children, ...other }) {
       return <H4 {...other}>{children}</H4>;
     case "p":
       return <P {...other}>{children}</P>;
+    case "p2":
+      return <P2 {...other}>{children}</P2>;
     default:
       return null;
   }
@@ -107,10 +125,10 @@ export function TypedContent({ type, children, ...other }) {
 
 TypedContent.defaultProps = {
   type: "p",
-  stringStyle: '',
+  stringstyle: '',
 };
 
 TypedContent.propTypes = {
-  type: PropTypes.oneOf(["h1", "h2", "h3", "h4", "p"]),
+  type: PropTypes.oneOf(["h1", "h2", "h3", "h4", "p", 'p2']),
   color: PropTypes.string,
 };

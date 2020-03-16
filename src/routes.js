@@ -7,7 +7,7 @@ export const routeObject = [
         slug: '/',
         name: 'homePage',
         pageData: {
-            forceTitle: "Zenspace",
+            forceTitle: "ZenDen",
             description: "Breathe easy with the help of guided mindful sessions, to balance your living space and create a purposeful place to call your own."
         },
         Component: Home,

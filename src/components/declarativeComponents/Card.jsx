@@ -7,8 +7,8 @@ export const CARD = styled.div`
     background-color: #FFF;
     padding: 3rem 2rem 4rem;
     border-radius: 1rem;
-    box-shadow: 0px 4px 7px rgba(215, 132, 38, 0.2);
-    ${({ stringStyle }) => (stringStyle || '')}
+    box-shadow: ${({ theme }) => theme.shadow || 'box-shadow: 0px 4px 7px rgba(226, 222, 226, 0.3)'};
+    ${({ stringstyle }) => (stringstyle || '')}
 `;
 
 export function Card({ type, children, naked, ...other }) {
@@ -17,12 +17,12 @@ export function Card({ type, children, naked, ...other }) {
 
 Card.defaultProps = {
     naked: false,
-    stringStyle: '',
+    stringstyle: '',
     childSpacing: '',
 };
 
 Card.propTypes = {
     naked: PropTypes.bool,
     color: PropTypes.string,
-    stringStyle: PropTypes.string,
+    stringstyle: PropTypes.string,
 };
