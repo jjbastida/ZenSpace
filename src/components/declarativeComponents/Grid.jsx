@@ -11,7 +11,6 @@ const childSpacingStyles = (childSpacing) => (`
 		margin-right: 0 !important;
 	}
 `);
-
 const masterGrid = (childSpacing, stringstyle) => `
 	max-width: 1920px;
 	margin: auto;

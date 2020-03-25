@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { NotFound } from "./pages/NotFound";
 import { routeObject } from "./routes";
 import styled from "styled-components";
+import { PageHelm } from "./components/declarativeComponents";
 
 const MAIN = styled.main`
 		background: ${({ theme }) => theme ? theme.background : '#FAFAFA'};
@@ -21,7 +22,11 @@ export function Routing() {
               key={name}
               path={slug}
               exact={exact}
-              render={() => <Component pageData={pageData} />}
+              render={() => (<>
+                <PageHelm pageData={pageData} />
+                <Component pageData={pageData} />
+              </>)
+              }
             />
           ))}
           <Route component={NotFound} status={404} />

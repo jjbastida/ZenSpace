@@ -12,13 +12,9 @@ export function Login({ pageData }) {
                 padding: 7rem 0;
             `}
         >
-            <PageHelm pageData={pageData} />
             <CARD
                 stringstyle={`
                     grid-column: 4 / span 6;
-                    ${Media4KUp} {
-                        grid-column: 5 / span 4;
-                    }
 				`}
             >
                 <Grid
@@ -31,6 +27,9 @@ export function Login({ pageData }) {
                     }
 					& > *:last-child {
                         margin-bottom: 0;
+                    }
+                    ${MediaSmall} {
+                        padding: 0 1rem;
                     }
 				`}
                 >

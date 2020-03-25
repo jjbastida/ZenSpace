@@ -44,11 +44,15 @@ export function Navigation() {
 							font-size: 3rem;
 						}
 						${MediaMedium} {
-							font-size: 2.2rem;
+							font-size: 2.4rem;
 						}
 						${MediaSmall} {
-							font-size: 1.8rem;
+							font-size: 2rem;
 							max-width: 52rem;
+							& > span {
+								visibility: visible !important;
+								opacity: 1 !important;
+								transform: translateX(0) !important;
 						}
 						&:focus {
                             outline: none;
@@ -93,7 +97,16 @@ export function Navigation() {
 					type="flex"
 					naked={true}
 					childSpacing="2rem"
-					stringstyle='& > * {padding: 0.8rem 2.4rem 0.6rem}'
+					stringstyle={`
+						& > * {
+							padding: 1rem 2.4rem;
+						}
+						${MediaSmall} {
+							& > * {
+								padding: 0.8rem 2rem;
+							}
+						}
+					`}
 				>
 					<Button href="/login/" type="outlined">
 						Login

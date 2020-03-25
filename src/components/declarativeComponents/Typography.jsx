@@ -24,13 +24,13 @@ export const H1 = styled.h1`
     font-size: 5.6rem;
   }
   ${MediaMedium} {
-    font-size: 5.2rem;
+    font-size: 5.4rem;
   }
   ${MediaSmall} {
-    font-size: 4.8rem;
+    font-size: 5rem;
     max-width: 52rem;
-    ${({ stringstyle }) => (stringstyle)}
   }
+    ${({ stringstyle }) => (stringstyle)}
 `;
 
 export const H2 = styled.h2`
@@ -66,16 +66,13 @@ export const H4 = styled.h4`
   ${masterTypography}
     font-weight: 400;
     color: ${({ theme, color }) => color || theme.textPrimary};
-    font-size: 2rem;
+    font-size: 2.4rem;
     line-height: 1.5
     ${Media4KUp} {
         font-size: 2.8rem;
     }
-    ${MediaMedium} {
-        font-size: 1.8rem;
-    }
     ${MediaSmall} {
-        font-size: 1.6rem;
+        font-size: 2rem;
         max-width: 52rem;
     }
     ${({ stringstyle }) => (stringstyle)}
@@ -86,6 +83,14 @@ export const P = styled.p`
   margin: 0 0 1rem 0;
   color: ${({ theme, color }) => color || theme.textPrimary};
   ${({ stringstyle }) => (stringstyle)}
+    font-size: 1.8rem;
+    line-height: 1.5
+    ${Media4KUp} {
+        font-size: 2rem;
+    }
+    ${MediaMedium} {
+        font-size: 1.6rem;
+    }
 `;
 
 export const P2 = styled.p`

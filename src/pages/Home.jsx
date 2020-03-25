@@ -5,17 +5,21 @@ import { useContext } from 'react';
 import { scrollInto } from '../components/helpers/scrollIntoView';
 import { GRID } from '../components/declarativeComponents/Grid';
 import { homeData } from './data/homeData'
+import { MediaSmall } from '../components/helpers/mediaQueries';
 
 export function Home({ pageData }) {
 	const secondSection = useRef();
 	const theme = useContext(ThemeContext);
 
 	return (<>
-		<PageHelm pageData={pageData} />
 		<Grid
 			stringstyle={`
 				padding-top: 10rem;
 				padding-bottom: 8rem;
+				${MediaSmall}{
+					padding-top: 8rem;
+					padding-bottom: 6rem;
+				}
 			`}
 			type='grid'
 		>
@@ -99,7 +103,11 @@ export function Home({ pageData }) {
 				padding-top: 7rem;
 				padding-bottom: 7rem;
 				background-color: ${theme.backgroundSecondary};
-			`}
+				${MediaSmall}{
+					padding-top: 6rem;
+					padding-bottom: 4rem;
+				}
+				`}
 			type='grid'
 		>
 			<Grid

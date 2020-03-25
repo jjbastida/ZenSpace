@@ -22,22 +22,22 @@ const masterButton = (stringstyle) => `
 	white-space: nowrap;
 	background: none;
 	border: none;
-	font-size: 1.6rem;
+	font-size: 1.8rem;
     text-decoration: none;
     cursor: pointer;
     text-align: center;
     border-radius: 1rem;
     transition: color ease 400ms, border ease 400ms, background-color ease 400ms, transform ease 400ms, box-shadow ease 400ms;
 	${Media4KUp} {
-		font-size: 1.8rem;
+		font-size: 2rem;
         padding: 1.6rem 2.6rem;
 	}
 	${MediaLarge} {
-		font-size: 1.4rem;
+		font-size: 1.8rem;
 	}
 	${MediaSmall} {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
+        font-size: 1.6rem;
+        padding: 1.4rem 2rem;
     }
     &:focus {
         outline: none;

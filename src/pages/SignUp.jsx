@@ -12,7 +12,6 @@ export function SignUp({ pageData }) {
                 padding: 7rem 0;
             `}
         >
-            <PageHelm pageData={pageData} />
             <CARD
                 stringstyle={`
                     grid-column: 4 / span 6;
@@ -31,6 +30,9 @@ export function SignUp({ pageData }) {
                     }
 					& > *:last-child {
                         margin-bottom: 0;
+                    }
+                    ${MediaSmall} {
+                        padding: 0 1rem;
                     }
 				`}
                 >

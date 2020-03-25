@@ -59,9 +59,17 @@ export function Footer() {
 						${MediaSmall} {
 							font-size: 1.6rem;
                             max-width: none;
-                            padding: 0;
+                            padding: 0.4rem 0;
                             width: auto;
                             grid-column: auto !important;
+							& > span {
+								display: none !important;
+						}
+							& > svg {
+                                margin-right: 0;
+                                display: block;
+                                margin: auto;
+						}
 						}
 						&:focus {
                             outline: none;
@@ -109,7 +117,7 @@ export function Footer() {
                             ${MediaSmall} {
                                 margin: 1rem;
                                 width: auto;
-                                padding: 0 1rem !important;
+                                padding: 0.4rem 1rem !important;
                                 &:first-child {
                                     margin-left: 0;
                                 }
@@ -140,9 +148,12 @@ export function Footer() {
                         target='_blank'
                         href='https://jjdesign.space'
                         stringstyle={`
-                        color: inherit;
-                        font: inherit;
-                    `}
+                            color: inherit;
+                            font: inherit;
+                            ${MediaSmall} {
+                                padding: 0.6rem 2rem 0.6rem 0;
+                            }
+                        `}
                     >
                         by JJ Bastida
                     </Link>

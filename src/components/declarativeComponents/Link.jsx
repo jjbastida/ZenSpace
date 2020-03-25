@@ -10,7 +10,7 @@ export const LINK = styled.a`
 	white-space: nowrap;
 	background: none;
 	border: none;
-	font-size: 1.6rem;
+	font-size: 1.8rem;
     text-decoration: underline;
     cursor: pointer;
     text-align: center;
@@ -25,15 +25,15 @@ export const LINK = styled.a`
         background-color: rgba(250,250,250,0.15);
     }
 	${Media4KUp} {
-		font-size: 1.8rem;
+		font-size: 2rem;
         padding: 1.6rem 2.6rem;
 	}
 	${MediaLarge} {
-		font-size: 1.4rem;
+		font-size: 1.8rem;
 	}
 	${MediaSmall} {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
+        font-size: 1.6rem;
+        padding: 0.6rem 2rem;
     }
     ${({ stringstyle }) => stringstyle};
 `;
