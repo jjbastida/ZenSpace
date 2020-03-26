@@ -1,3 +1,30 @@
+@font-face {
+  font-family: Dona;
+  font-weight: 400;
+  font-style: normal;
+  src: url(fonts/Regular/Dona-Regular.eot);
+  src: url(fonts/Regular/Dona-Regular.woff);
+  src: url(fonts/Regular/Dona-Regular.woff2);
+}
+
+@font-face {
+  font-family: Dona;
+  font-weight: 500;
+  font-style: normal;
+  src: url(fonts/Medium/Dona-Medium.eot);
+  src: url(fonts/Medium/Dona-Medium.woff);
+  src: url(fonts/Medium/Dona-Medium.woff2);
+}
+
+@font-face {
+  font-family: Dona;
+  font-weight: 700;
+  font-style: normal;
+  src: url(fonts/Bold/Dona-Bold.eot);
+  src: url(fonts/Bold/Dona-Bold.woff);
+  src: url(fonts/Bold/Dona-Bold.woff2);
+}
+
 html {
   font-size: 62.5%;
 }

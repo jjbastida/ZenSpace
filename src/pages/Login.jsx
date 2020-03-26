@@ -1,10 +1,10 @@
 import React from "react";
-import { TypedContent, PageHelm, Grid } from "../components/declarativeComponents";
+import { TypedContent, Grid } from "../components/declarativeComponents";
 import { CARD } from "../components/declarativeComponents/Card";
 import { Input } from "../components/declarativeComponents/Input";
 import { Media4KUp, MediaLarge, MediaMedium, MediaSmall } from "../components/helpers/mediaQueries";
 
-export function Login({ pageData }) {
+export function Login() {
     return (
         <Grid
             type='grid'

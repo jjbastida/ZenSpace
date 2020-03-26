@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { TypedContent, Grid, PageHelm, Image, Button } from '../components/declarativeComponents';
+import { TypedContent, Grid, Image, Button } from '../components/declarativeComponents';
 import { ThemeContext } from 'styled-components';
 import { useContext } from 'react';
 import { scrollInto } from '../components/helpers/scrollIntoView';
@@ -7,7 +7,7 @@ import { GRID } from '../components/declarativeComponents/Grid';
 import { homeData } from './data/homeData'
 import { MediaSmall } from '../components/helpers/mediaQueries';
 
-export function Home({ pageData }) {
+export function Home() {
 	const secondSection = useRef();
 	const theme = useContext(ThemeContext);
 
