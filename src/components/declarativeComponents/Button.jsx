@@ -18,7 +18,7 @@ const masterButton = (stringstyle) => `
 	display: block;
 	padding: 1.4rem 2.4rem;
 	margin: 0;
-	font-weight:600;
+	font-weight:400;
 	white-space: nowrap;
 	background: none;
 	border: none;
