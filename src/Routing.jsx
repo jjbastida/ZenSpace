@@ -4,12 +4,16 @@ import { NotFound } from "./pages/NotFound";
 import { routeObject } from "./routes";
 import styled from "styled-components";
 import { PageHelm } from "./components/declarativeComponents";
+import { MediaSmall } from "./components/helpers/mediaQueries";
 
 const MAIN = styled.main`
 		background: ${({ theme }) => theme ? theme.background : '#FAFAFA'};
     min-height:100vh;
-    padding-top: 4rem;
+    padding-top: 6.5rem;
     box-sizing: border-box;
+    ${MediaSmall} {
+      padding-top: 4rem;
+    }
 `;
 
 export function Routing() {

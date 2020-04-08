@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Routing } from './Routing';
 import { lightTheme } from './theme/lightTheme';
-import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import Helmet from 'react-helmet';
 import { Navigation, ContentSkip } from './components/compoundComponents';
 import { Footer } from './components/compoundComponents/Footer';
+import { pathWhitelist } from './components/helpers/pathFunctions';
+import { useLocalWindow } from './components/hooks/useLocalWindow';
 import { AppContextProvider } from './contexts/AppContext';
 
 export default function App() {
-	const [localWindow, setLocalWindow] = useState(window || {});
-	const initialState = {
-		localWindow,
-		setLocalWindow,
-	}
+	const localWindow = useLocalWindow();
 	const currentPath = (localWindow && localWindow.location && localWindow.location.pathname) || '';
-	const noFooterPathCheck = () => ['/'].includes(currentPath);
-	const GlobalStyle = createGlobalStyle`
-	`;
 
 	return (
-		<AppContextProvider initialState={initialState}>
-			<ThemeProvider theme={lightTheme}>
-				<GlobalStyle />
+		<ThemeProvider theme={lightTheme}>
+			<AppContextProvider initialState={{
+				localWindow,
+				currentPath,
+			}}>
 				<Helmet>
-					<title>Generic Title</title>
-					<meta name='description' content='LoremIpsum' />
+					<title>ZenDen</title>
+					<meta
+						name='description'
+						content='Breathe easy with the help of guided mindful sessions, to balance your living space and create a purposeful place to call your own.'
+					/>
 				</Helmet>
 				<ContentSkip />
-				<Navigation />
+				<Navigation currentPath={currentPath} />
 				<Routing />
-				{noFooterPathCheck() ? <Footer /> : null}
-			</ThemeProvider>
-		</AppContextProvider>
+				{pathWhitelist(currentPath, ['/']) ? <Footer /> : null}
+			</AppContextProvider>
+		</ThemeProvider>
 	);
 }

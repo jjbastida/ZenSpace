@@ -61,16 +61,19 @@ export function SignUp() {
                         type='text'
                         placeholder='Enter your preferred name...'
                         label='Nickname'
+                        disabled
                     />
                     <Input
                         type='email'
                         placeholder='Enter your email address...'
                         label='Email'
+                        disabled
                     />
                     <Input
                         type='password'
                         placeholder='Enter a password...'
                         label='Password'
+                        disabled
                     />
                     <Input
                         type='submit'
@@ -78,8 +81,9 @@ export function SignUp() {
                         bgColor='white'
                         stringstyle='max-width: 33%'
                         labelstringstyle='margin-bottom: 3rem'
+                        disabled
                     />
-                    <TypedContent type='body2'>
+                    <TypedContent type='p2'>
                         By pressing sign up you are agreeing to the Terms &amp; Conditions and the secure storage and encryption of your user information.
                     </TypedContent>
                 </Grid>

@@ -15,6 +15,9 @@ export function Login() {
             <CARD
                 stringstyle={`
                     grid-column: 4 / span 6;
+                    ${Media4KUp} {
+                        grid-column: 5 / span 4;
+                    }
 				`}
             >
                 <Grid
@@ -58,11 +61,13 @@ export function Login() {
                         type='email'
                         placeholder='Enter your email address...'
                         label='Email'
+                        disabled
                     />
                     <Input
                         type='password'
                         placeholder='Enter a password...'
                         label='Password'
+                        disabled
                     />
                     <Input
                         type='submit'
@@ -70,6 +75,7 @@ export function Login() {
                         bgColor='white'
                         stringstyle='max-width: 33%'
                         labelstringstyle='margin-bottom: 3rem'
+                        disabled
                     />
                 </Grid>
             </CARD>

@@ -1,22 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
+import PropTypes from "prop-types";
 import { Grid, TypedContent, Button } from "../declarativeComponents";
 import styled from "styled-components";
 import { RenderSVG } from "../declarativeComponents/RenderSVG";
 import { Media4KUp, MediaMedium, MediaSmall } from "../helpers/mediaQueries";
+import { pathBlacklist, pathWhitelist } from "../helpers/pathFunctions";
+import { AppContext } from "../../contexts/AppContext";
 
 const DROPSHADOW_HEADER = styled.header`
 	width: 100%;
 	position: fixed;
   	padding-top: 1rem;
+	z-index: 40;
   	padding-bottom: 1rem;
   	background: ${({ theme }) => theme.background};
-  	box-shadow: 0px 4px 7px rgba(226, 222, 226, 0.2);
+	box-shadow: ${({ noDrop }) => noDrop ? '' : '0px 4px 7px rgba(226, 222, 226, 0.2)'};
+
+	${MediaSmall} {
+		box-shadow: 0px 4px 7px rgba(226, 222, 226, 0.2);
+	}
 `;
 
 
 export function Navigation() {
+	const { currentPath, parseCookie } = useContext(AppContext);
+	const { walkthroughStep } = parseCookie();
+	const walkingThrough = pathBlacklist(currentPath, ['/getting-started/']);
+	const noDrop = pathWhitelist(currentPath, ['/getting-started/', '/tutorial/']);
+
 	return (
-		<DROPSHADOW_HEADER>
+		<DROPSHADOW_HEADER noDrop={noDrop}>
 			<Grid
 				type="flex"
 				stringstyle={`
@@ -53,6 +66,7 @@ export function Navigation() {
 								visibility: visible !important;
 								opacity: 1 !important;
 								transform: translateX(0) !important;
+							}
 						}
 						&:focus {
                             outline: none;
@@ -108,14 +122,24 @@ export function Navigation() {
 						}
 					`}
 				>
-					<Button href="/login/" type="outlined">
+					{/* <Button href="/login/" type="outlined">
 						Login
-          			</Button>
-					<Button href="/sign-up/" type="filled">
-						Sign Up
-          			</Button>
+          			</Button> */}
+					{walkingThrough && walkthroughStep >= 2 ? (
+						<Button href="/dashboard/" type="outlined">
+							Dashboard
+						</Button>
+					) : walkingThrough ? (
+						<Button href="/getting-started/" type="filled">
+							Get Started
+						</Button>
+					) : null}
 				</Grid>
 			</Grid>
 		</DROPSHADOW_HEADER>
 	);
 }
+
+Navigation.propTypes = {
+	currentPath: PropTypes.string,
+};

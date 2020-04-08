@@ -1,1 +1,1 @@
-export const scrollInto = ({ current }) => current.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
+export const scrollIntoRef = ({ current }) => current.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });

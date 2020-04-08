@@ -27,6 +27,13 @@ export const TEXT = styled.input`
     &::placeholder {
         color: #CCCCDD;
     }
+    ${({ disabled }) => disabled ? `
+        color: #FFFFFF !important;
+        transform: none !important;
+        background-color: #EAEAEA !important;
+        cursor: default !important;
+        box-shadow: none !important;
+    ` : ''}
 	${({ label }) => (label ? 'margin-bottom: 0.6rem !important' : '')};
 	${({ stringstyle }) => (stringstyle)}
 `;
