@@ -15,7 +15,8 @@ const ICON_BUTTON = styled.button`
 	font-weight:500;
     height: 5rem !important;
     width: 5rem !important;
-	white-space: nowrap;
+    white-space: nowrap;
+    z-index: 1;
 	background: none;
 	border: none;
 	font-size: 1.8rem;

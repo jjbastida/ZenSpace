@@ -10,8 +10,8 @@ export const walkthroughData = [
         imagePath: 'https://via.placeholder.com/500x300',
     },
     {
-        title: 'Let’s get started!',
-        body: '//FIX',
+        title: 'Let’s get started for free!',
+        body: 'Other activities will become unlocked as you work through some of them! Or if you decide to sign up for free!',
         imagePath: 'https://via.placeholder.com/500x300',
     },
 ];
