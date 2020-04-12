@@ -1,6 +1,8 @@
 import { Home } from "./pages/Home";
 import { Login } from "./pages/Login";
 import { SignUp } from "./pages/SignUp";
+import { Walkthrough } from "./pages/Walkthrough";
+import { Dashboard } from "./pages/Dashboard";
 
 export const routeObject = [
     {
@@ -30,6 +32,23 @@ export const routeObject = [
         },
         Component: SignUp,
         exact: true,
+    }, {
+        slug: '/getting-started',
+        name: 'Getting Started',
+        pageData: {
+            title: "Getting Started",
+            description: "SignUp page."
+        },
+        Component: Walkthrough,
+        exact: true,
+    }, {
+        slug: '/dashboard',
+        name: 'Dashboard',
+        pageData: {
+            title: "Dashboard",
+            description: "Dashboard page."
+        },
+        Component: Dashboard,
+        exact: true,
     },
-
 ];

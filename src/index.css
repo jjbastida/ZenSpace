@@ -1,3 +1,30 @@
+@font-face {
+  font-family: Dona;
+  font-weight: 400;
+  font-style: normal;
+  src: url(/fonts/Regular/Dona-Regular.eot);
+  src: url(/fonts/Regular/Dona-Regular.woff);
+  src: url(/fonts/Regular/Dona-Regular.woff2);
+}
+
+@font-face {
+  font-family: Dona;
+  font-weight: 500;
+  font-style: normal;
+  src: url(/fonts/Medium/Dona-Medium.eot);
+  src: url(/fonts/Medium/Dona-Medium.woff);
+  src: url(/fonts/Medium/Dona-Medium.woff2);
+}
+
+@font-face {
+  font-family: Dona;
+  font-weight: 700;
+  font-style: normal;
+  src: url(/fonts/Heavy/Dona-Heavy.eot);
+  src: url(/fonts/Heavy/Dona-Heavy.woff);
+  src: url(/fonts/Heavy/Dona-Heavy.woff2);
+}
+
 html {
   font-size: 62.5%;
 }
@@ -11,4 +38,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button, h1, h2, h3, h4, h5, p, span, a {
+  font-family: Dona, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }

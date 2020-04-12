@@ -14,30 +14,38 @@ const getBgColor = (bgColor) => {
     return color;
 }
 
-const masterButton = (stringstyle) => `
+const masterButton = (stringstyle, disabled) => `
 	display: block;
 	padding: 1.4rem 2.4rem;
 	margin: 0;
-	font-weight:600;
+	font-weight:500;
 	white-space: nowrap;
 	background: none;
 	border: none;
-	font-size: 1.6rem;
+	font-size: 1.8rem;
     text-decoration: none;
     cursor: pointer;
     text-align: center;
     border-radius: 1rem;
     transition: color ease 400ms, border ease 400ms, background-color ease 400ms, transform ease 400ms, box-shadow ease 400ms;
+    ${disabled ? `
+        color: #FFFFFF !important;
+        transform: none !important;
+        background-color: #CCCCDD !important;
+        border-color: #CCCCDD !important;
+        cursor: default !important;
+        box-shadow: none !important;
+    ` : ''}
 	${Media4KUp} {
-		font-size: 1.8rem;
+		font-size: 2rem;
         padding: 1.6rem 2.6rem;
 	}
 	${MediaLarge} {
-		font-size: 1.4rem;
+		font-size: 1.8rem;
 	}
 	${MediaSmall} {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
+        font-size: 1.6rem;
+        padding: 1.4rem 2rem;
     }
     &:focus {
         outline: none;
@@ -49,7 +57,7 @@ const masterButton = (stringstyle) => `
 `;
 
 export const FILLED = styled.button`
-  ${({ stringstyle }) => masterButton(stringstyle)};
+  ${({ stringstyle, disabled }) => masterButton(stringstyle, disabled)};
   color: #FFFFFF;
   background-color: ${({ theme }) => theme.textPrimary};
   border: 1px solid ${({ theme }) => theme.textPrimary};
@@ -78,7 +86,7 @@ export const FILLED = styled.button`
 `;
 
 export const OUTLINED = styled.button`
-    ${({ stringstyle }) => masterButton(stringstyle)};
+  ${({ stringstyle, disabled }) => masterButton(stringstyle, disabled)};
         color: ${({ theme }) => theme.textPrimary};
         background-color: #FFF;
         border: 1px solid ${({ theme }) => theme.textPrimary};

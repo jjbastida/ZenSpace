@@ -1,10 +1,10 @@
 import React from "react";
-import { TypedContent, PageHelm, Grid } from "../components/declarativeComponents";
+import { TypedContent, Grid } from "../components/declarativeComponents";
 import { CARD } from "../components/declarativeComponents/Card";
 import { Input } from "../components/declarativeComponents/Input";
 import { Media4KUp, MediaLarge, MediaMedium, MediaSmall } from "../components/helpers/mediaQueries";
 
-export function SignUp({ pageData }) {
+export function SignUp() {
     return (
         <Grid
             type='grid'
@@ -12,7 +12,6 @@ export function SignUp({ pageData }) {
                 padding: 7rem 0;
             `}
         >
-            <PageHelm pageData={pageData} />
             <CARD
                 stringstyle={`
                     grid-column: 4 / span 6;
@@ -31,6 +30,9 @@ export function SignUp({ pageData }) {
                     }
 					& > *:last-child {
                         margin-bottom: 0;
+                    }
+                    ${MediaSmall} {
+                        padding: 0 1rem;
                     }
 				`}
                 >
@@ -59,16 +61,19 @@ export function SignUp({ pageData }) {
                         type='text'
                         placeholder='Enter your preferred name...'
                         label='Nickname'
+                        disabled
                     />
                     <Input
                         type='email'
                         placeholder='Enter your email address...'
                         label='Email'
+                        disabled
                     />
                     <Input
                         type='password'
                         placeholder='Enter a password...'
                         label='Password'
+                        disabled
                     />
                     <Input
                         type='submit'
@@ -76,8 +81,9 @@ export function SignUp({ pageData }) {
                         bgColor='white'
                         stringstyle='max-width: 33%'
                         labelstringstyle='margin-bottom: 3rem'
+                        disabled
                     />
-                    <TypedContent type='body2'>
+                    <TypedContent type='p2'>
                         By pressing sign up you are agreeing to the Terms &amp; Conditions and the secure storage and encryption of your user information.
                     </TypedContent>
                 </Grid>

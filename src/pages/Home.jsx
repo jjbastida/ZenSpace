@@ -1,21 +1,25 @@
 import React, { useRef } from 'react';
-import { TypedContent, Grid, PageHelm, Image, Button } from '../components/declarativeComponents';
+import { TypedContent, Grid, Image, Button } from '../components/declarativeComponents';
 import { ThemeContext } from 'styled-components';
 import { useContext } from 'react';
-import { scrollInto } from '../components/helpers/scrollIntoView';
+import { scrollIntoRef } from '../components/helpers/scrollIntoView';
 import { GRID } from '../components/declarativeComponents/Grid';
 import { homeData } from './data/homeData'
+import { MediaSmall } from '../components/helpers/mediaQueries';
 
-export function Home({ pageData }) {
-	const secondSection = useRef();
+export function Home() {
+	const thirdSection = useRef();
 	const theme = useContext(ThemeContext);
 
 	return (<>
-		<PageHelm pageData={pageData} />
 		<Grid
 			stringstyle={`
 				padding-top: 10rem;
 				padding-bottom: 8rem;
+				${MediaSmall}{
+					padding-top: 8rem;
+					padding-bottom: 6rem;
+				}
 			`}
 			type='grid'
 		>
@@ -27,13 +31,13 @@ export function Home({ pageData }) {
 					grid-column: auto / span 6;
 				`}
 			>
-				<TypedContent type='h1' stringstyle='max-width: 75rem;'>
+				<TypedContent type='h1' stringstyle='max-width: 75rem;' underline={true}>
 					{homeData.sections[0].content.title}
 				</TypedContent>
 				<TypedContent type='h4' stringstyle='margin-bottom: 2rem;'>
 					{homeData.sections[0].content.body}
 				</TypedContent>
-				<Button type='outlined' onClick={() => scrollInto(secondSection)}>
+				<Button type='outlined' onClick={() => scrollIntoRef(thirdSection)}>
 					{homeData.sections[0].content.button.buttonText}
 				</Button>
 			</Grid>
@@ -45,14 +49,13 @@ export function Home({ pageData }) {
 				src={homeData.sections[0].content.imagePath}
 			/>
 		</Grid>
-		<GRID
+		<Grid
 			stringstyle={`
 			padding-top: 7rem;
 			padding-bottom: 7rem;
 			background-color: ${theme.backgroundSecondary};
 			`}
 			childrenSize='4'
-			ref={secondSection}
 		>
 			{homeData.sections[1].content.blocks.length && homeData.sections[1].content.blocks.map(({ title, imagePath }, index) => (
 				<div key={title}>
@@ -62,13 +65,13 @@ export function Home({ pageData }) {
 					</TypedContent>
 				</div>
 			))}
-		</GRID>
-		<Grid
+		</Grid>
+		<GRID
 			stringstyle={`
 				padding-top: 7rem;
 				padding-bottom: 7rem;
 			`}
-			type='grid'
+			ref={thirdSection}
 		>
 			<Image
 				stringstyle={`
@@ -93,13 +96,17 @@ export function Home({ pageData }) {
 					{homeData.sections[2].content.body}
 				</TypedContent>
 			</Grid>
-		</Grid>
+		</GRID>
 		<Grid
 			stringstyle={`
 				padding-top: 7rem;
 				padding-bottom: 7rem;
 				background-color: ${theme.backgroundSecondary};
-			`}
+				${MediaSmall}{
+					padding-top: 6rem;
+					padding-bottom: 4rem;
+				}
+				`}
 			type='grid'
 		>
 			<Grid

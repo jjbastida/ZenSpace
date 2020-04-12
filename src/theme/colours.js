@@ -20,7 +20,7 @@ export const namedColors = {
       },
       HARVEST: {
             background: '#FBF6F4',
-            backgroundAccent: '#FBF3EF',
+            backgroundAccent: '#FDF4F1',
             light: '#FFCF99',
             accent: '#D78426',
             main: '#AD6411',

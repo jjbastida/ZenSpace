@@ -8,25 +8,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/pro-solid-svg-icons';
 
 const DARK_FOOTER = styled.footer`
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  background-color: ${({ theme }) => theme.textPrimary};
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: ${({ theme }) => theme.textPrimary};
+    ${Media4KUp} {
+        padding-top: 1.4rem;
+        padding-bottom: 1.4rem;
+    }
 `;
 
-const links = [
-    {
-        slug: '/login/',
-        text: 'Login'
-    },
-    {
-        slug: '/sign-up/',
-        text: 'Sign Up'
-    },
-    {
-        slug: '/about/',
-        text: 'About'
-    },
-];
+const links = [];
+
+// [
+//     {
+//         slug: '/login/',
+//         text: 'Login'
+//     },
+//     {
+//         slug: '/sign-up/',
+//         text: 'Sign Up'
+//     },
+//     {
+//         slug: '/about/',
+//         text: 'About'
+//     },
+// ];
 
 export function Footer() {
     return (
@@ -45,7 +51,7 @@ export function Footer() {
                     title='Homepage'
                     stringstyle={`
 						text-decoration: none;
-						font-weight: 500;
+						font-weight: 400;
                         font-size: 2rem;
                         padding: 0 1rem;
                         border-radius: 0.4rem;
@@ -59,9 +65,17 @@ export function Footer() {
 						${MediaSmall} {
 							font-size: 1.6rem;
                             max-width: none;
-                            padding: 0;
+                            padding: 0.4rem 0;
                             width: auto;
                             grid-column: auto !important;
+							& > span {
+								display: none !important;
+						}
+							& > svg {
+                                margin-right: 0;
+                                display: block;
+                                margin: auto;
+						}
 						}
 						&:focus {
                             outline: none;
@@ -109,7 +123,7 @@ export function Footer() {
                             ${MediaSmall} {
                                 margin: 1rem;
                                 width: auto;
-                                padding: 0 1rem !important;
+                                padding: 0.4rem 1rem !important;
                                 &:first-child {
                                     margin-left: 0;
                                 }
@@ -121,7 +135,7 @@ export function Footer() {
                     ))}
                 </Grid>
                 <TypedContent
-                    type='p2'
+                    type='p'
                     color='#CCCCDD'
                     stringstyle={`
                     grid-columns: auto;
@@ -140,9 +154,15 @@ export function Footer() {
                         target='_blank'
                         href='https://jjdesign.space'
                         stringstyle={`
-                        color: inherit;
-                        font: inherit;
-                    `}
+                            color: inherit;
+                            font: inherit;
+                            ${Media4KUp} {
+                                padding: 0.6rem 2rem 0.6rem 0;
+                            }
+                            ${MediaSmall} {
+                                padding: 0.6rem 2rem 0.6rem 0;
+                            }
+                        `}
                     >
                         by JJ Bastida
                     </Link>

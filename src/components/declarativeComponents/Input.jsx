@@ -27,12 +27,38 @@ export const TEXT = styled.input`
     &::placeholder {
         color: #CCCCDD;
     }
+    ${({ disabled }) => disabled ? `
+        color: #FFFFFF !important;
+        transform: none !important;
+        background-color: #EAEAEA !important;
+        cursor: default !important;
+        box-shadow: none !important;
+    ` : ''}
 	${({ label }) => (label ? 'margin-bottom: 0.6rem !important' : '')};
 	${({ stringstyle }) => (stringstyle)}
 `;
 
-export const RADIO = styled.input`
-
+export const RADIO = styled.div`
+    display: inline-block;
+    height: 2em;
+    width: 2em;
+    margin-right: 0.8rem;
+    border-radius: 500px;
+    position: relative;
+    border: 1px solid #40405A;
+    cursor: pointer;
+    &::after {
+        content: '';
+        display: ${({ value }) => (value ? 'block' : 'none')};;
+        height: 1em;
+        width: 1em;
+        border-radius: 500px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #40405A;
+    }
 	${({ stringstyle }) => (stringstyle)}
 `;
 
@@ -52,7 +78,7 @@ export const LABEL = styled.label`
 	${({ labelstringstyle }) => (labelstringstyle)}
 `;
 
-export function Input({ type, label, value, children, ...other }) {
+export function Input({ type, label, value, children, name, onClick, ...other }) {
     const INPUT = () => {
         switch (type) {
             case 'checkbox':
@@ -60,6 +86,7 @@ export function Input({ type, label, value, children, ...other }) {
                     <CHECKBOX
                         type={type}
                         label={label}
+                        name={name}
                         id={label ? label : null}
                         {...other}
                     />
@@ -69,6 +96,7 @@ export function Input({ type, label, value, children, ...other }) {
                     <FILLED
                         type={type}
                         label={label}
+                        name={name}
                         {...other}
                     >
                         {value || children || ''}
@@ -79,6 +107,7 @@ export function Input({ type, label, value, children, ...other }) {
                     <DATE
                         type={type}
                         label={label}
+                        name={name}
                         id={label ? label : null}
                         {...other}
                     />
@@ -88,6 +117,7 @@ export function Input({ type, label, value, children, ...other }) {
                     <TIME
                         type={type}
                         label={label}
+                        name={name}
                         id={label ? label : null}
                         {...other}
                     />
@@ -99,24 +129,32 @@ export function Input({ type, label, value, children, ...other }) {
                     <TEXT
                         type={type}
                         label={label}
+                        name={name}
                         id={label ? label : null}
                         {...other}
                     />
                 )
             case 'radio':
-                return (
+                return (<>
                     <RADIO
+                        value={value}
+                    />
+                    <input
+                        style={{ display: 'none' }}
                         type={type}
-                        label={label} labelstringstyle
+                        label={label}
+                        name={name}
+                        value={value}
                         id={label ? label : null}
                         {...other}
                     />
-                )
+                </>)
             case 'file':
                 return (
                     <FILE
                         type={type}
                         label={label}
+                        name={name}
                         id={label ? label : null}
                         {...other}
                     />
@@ -126,31 +164,31 @@ export function Input({ type, label, value, children, ...other }) {
         };
     };
 
-    return (<>
+    return (<div onClick={onClick} data-label={label || ''} style={{ cursor: type === 'radio' ? 'pointer' : null }}>
         <INPUT />
         {label ?
-            <LABEL htmlFor={label} {...other}>
-                {value || children || label}
+            <LABEL htmlFor={label} {...other} style={{ cursor: type === 'radio' ? 'pointer' : null }}>
+                {label || value || children}
             </LABEL>
             : null
         }
-    </>);
+    </div>);
 
 };
 
 Input.defaultProps = {
     type: 'grid',
     naked: false,
+    onClick: null,
     stringstyle: '',
     labelstringstyle: '',
-    childSpacing: '',
 };
 
 Input.propTypes = {
     type: PropTypes.oneOf(['checkbox', 'date', 'time', 'text', 'radio', 'email', 'file', 'password', 'submit']),
     naked: PropTypes.bool,
     stringstyle: PropTypes.string,
+    name: PropTypes.string,
     labelstringstyle: PropTypes.string,
-    childSpacing: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     childrenSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };

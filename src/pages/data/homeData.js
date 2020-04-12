@@ -45,8 +45,8 @@ export const homeData = {
                 title: 'Let’s get started!',
                 body: 'Work alongside our curated mindful activities to create a radiant and beautiful space for yourself today!',
                 button: {
-                    buttonLink: '/sign-up/',
-                    buttonText: 'Sign up'
+                    buttonLink: '/getting-started/',
+                    buttonText: 'Get Started'
                 },
             },
         },

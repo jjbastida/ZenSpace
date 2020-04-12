@@ -1,10 +1,10 @@
 import React from "react";
-import { TypedContent, PageHelm, Grid } from "../components/declarativeComponents";
+import { TypedContent, Grid } from "../components/declarativeComponents";
 import { CARD } from "../components/declarativeComponents/Card";
 import { Input } from "../components/declarativeComponents/Input";
 import { Media4KUp, MediaLarge, MediaMedium, MediaSmall } from "../components/helpers/mediaQueries";
 
-export function Login({ pageData }) {
+export function Login() {
     return (
         <Grid
             type='grid'
@@ -12,7 +12,6 @@ export function Login({ pageData }) {
                 padding: 7rem 0;
             `}
         >
-            <PageHelm pageData={pageData} />
             <CARD
                 stringstyle={`
                     grid-column: 4 / span 6;
@@ -31,6 +30,9 @@ export function Login({ pageData }) {
                     }
 					& > *:last-child {
                         margin-bottom: 0;
+                    }
+                    ${MediaSmall} {
+                        padding: 0 1rem;
                     }
 				`}
                 >
@@ -59,11 +61,13 @@ export function Login({ pageData }) {
                         type='email'
                         placeholder='Enter your email address...'
                         label='Email'
+                        disabled
                     />
                     <Input
                         type='password'
                         placeholder='Enter a password...'
                         label='Password'
+                        disabled
                     />
                     <Input
                         type='submit'
@@ -71,6 +75,7 @@ export function Login({ pageData }) {
                         bgColor='white'
                         stringstyle='max-width: 33%'
                         labelstringstyle='margin-bottom: 3rem'
+                        disabled
                     />
                 </Grid>
             </CARD>
