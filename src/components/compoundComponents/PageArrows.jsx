@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, TypedContent } from '../declarativeComponents';
+import { TypedContent } from '../declarativeComponents';
 import { faChevronRight, faChevronLeft } from '@fortawesome/pro-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styled from 'styled-components';
@@ -68,6 +68,11 @@ export function PageArrows({ currentPage, setPage, arrayLength, continueText, co
     const pageArrowsStyle = `
         top: 50%;
         transform: translateY(-50%);
+        ${MediaSmall} {
+            top: auto;
+            bottom: 3rem;
+            transform: none;
+        }
     `;
 
     return (<>

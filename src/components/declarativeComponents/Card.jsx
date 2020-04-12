@@ -12,7 +12,11 @@ export const CARD = styled.div`
 `;
 
 export function Card({ type, children, naked, ...other }) {
-    return <CARD />
+    return (
+        <CARD {...other}>
+            {children}
+        </CARD>
+    );
 }
 
 Card.defaultProps = {

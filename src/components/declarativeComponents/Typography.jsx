@@ -66,8 +66,20 @@ export const H2 = styled.h2`
 
 export const H3 = styled.h3`
   ${({ underline }) => masterTypography(underline)}
-  font-weight: 400;
-  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 3.8rem;
+  ${Media4KUp} {
+    font-size: 4.2rem;
+  }
+  ${MediaLarge} {
+    font-size: 4rem;
+  }
+  ${MediaMedium} {
+    font-size: 3.6rem;
+  }
+  ${MediaSmall} {
+    font-size: 3.4rem;
+  }
   color: ${({ theme, color }) => color || theme.textPrimary};
     ${({ stringstyle }) => (stringstyle)}
 `;
@@ -92,7 +104,6 @@ export const P = styled.p`
   ${({ underline }) => masterTypography(underline)}
   margin: 0 0 1rem 0;
   color: ${({ theme, color }) => color || theme.textPrimary};
-  ${({ stringstyle }) => (stringstyle)}
     font-size: 1.8rem;
     line-height: 1.5
     ${Media4KUp} {
@@ -101,6 +112,7 @@ export const P = styled.p`
     ${MediaMedium} {
         font-size: 1.6rem;
     }
+    ${({ stringstyle }) => (stringstyle)}
 `;
 
 export const P2 = styled.p`

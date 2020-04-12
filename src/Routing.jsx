@@ -5,6 +5,7 @@ import { routeObject } from "./routes";
 import styled from "styled-components";
 import { PageHelm } from "./components/declarativeComponents";
 import { MediaSmall } from "./components/helpers/mediaQueries";
+import { Activities } from "./pages/Activities";
 
 const MAIN = styled.main`
 		background: ${({ theme }) => theme ? theme.background : '#FAFAFA'};
@@ -33,6 +34,7 @@ export function Routing() {
               }
             />
           ))}
+          <Route path='/activities/:slug' component={Activities} />
           <Route component={NotFound} status={404} />
         </Switch>
       </Router>

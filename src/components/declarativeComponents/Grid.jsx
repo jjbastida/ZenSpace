@@ -31,7 +31,7 @@ const masterGrid = (childSpacing, stringstyle) => `
 export const GRID = styled.div`
 	display: grid;
 	grid-template-columns: repeat(12, 1fr);
-	grid-gap: 2%;
+	grid-gap: 0 2%;
 	${({ childrenSize }) => (childrenSize ? `
 	& > * {
 			grid-column: auto / span ${childrenSize};

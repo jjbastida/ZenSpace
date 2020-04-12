@@ -25,10 +25,12 @@ export function Walkthrough() {
 		};
 		document.addEventListener('keydown', keyPressRight);
 		document.addEventListener('keydown', keyPressLeft);
+
 		return () => {
 			document.removeEventListener('keydown', keyPressRight);
 			document.removeEventListener('keydown', keyPressLeft);
 		}
+		// eslint-disable-next-line
 	}, [walkthroughStep])
 
 	return (<>
@@ -56,6 +58,9 @@ export function Walkthrough() {
 					object-fit: cover;
 					max-height: 55rem;
 					margin-bottom: 2rem;
+					${MediaSmall}{
+						max-height: 25rem;
+					}
 				`}
 				src={walkthroughData[walkthroughStep].imagePath}
 			/>

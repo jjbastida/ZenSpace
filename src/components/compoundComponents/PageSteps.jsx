@@ -2,8 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from '../declarativeComponents';
 import styled from 'styled-components';
-import { Media4KUp, MediaLarge, MediaSmall } from '../helpers/mediaQueries';
-import { enterKeyIsPressed } from '../helpers/keydown';
+import { MediaLarge, MediaSmall } from '../helpers/mediaQueries';
 
 const PAGE_CIRCLE = styled.button`
     display: block;
@@ -22,10 +21,7 @@ const PAGE_CIRCLE = styled.button`
     border-radius: 100rem;
     background-color: #FFCF99 !important;
     border: 1px solid ${({ theme }) => theme.textPrimary};
-    ${({ inactive }) => inactive ? `
-        background-color: #FFF !important;
-        box-shadow: none !important;
-    ` : ''}
+    ${({ inactive }) => inactive ? 'background-color: #FFF !important; box-shadow: none !important;' : ''}
 	${MediaLarge} {
         height: 1.2rem;
         width: 1.2rem;
@@ -49,11 +45,11 @@ export function PageSteps({ currentPage, setPage, array }) {
             type='flex'
             stringstyle='position: fixed; bottom: 3rem; left: 50%; transform: translateX(-50%);'
         >
-            {array.map(({ title }, length) => (
+            {Array.isArray(array) && array.map(({ title }, index) => (
                 <PAGE_CIRCLE
                     key={title}
-                    onClick={() => setPage(length)}
-                    inactive={currentPage + 1 <= length}
+                    onClick={() => setPage(index)}
+                    inactive={currentPage + 1 <= index}
                 />
             ))}
         </Grid>

@@ -7,7 +7,9 @@ export function AppContextProvider({ initialState, children }) {
     const baseCookies = JSON.stringify({
         walkthroughStep: 0,
         nickname: '',
-        progress: {},
+        progress: {
+            intro: 0,
+        },
         loggedIn: false,
     });
     const cookieValue = 'ZenDenCookies';
@@ -17,6 +19,7 @@ export function AppContextProvider({ initialState, children }) {
     const [zenCookie, setZenCookie] = useState(getStorage);
     const parseCookie = () => JSON.parse(zenCookie);
     const updateCookieValue = (cookieKey, cookieValue) => setZenCookie(JSON.stringify({ ...parseCookie(), [cookieKey]: cookieValue }));
+    const updateCookieProgValue = (progKey, progValue) => setZenCookie(JSON.stringify({ ...parseCookie(), progress: { [progKey]: progValue } }));
     const resetCookie = () => setZenCookie(baseCookies);
 
     useEffect(() => {
@@ -29,6 +32,7 @@ export function AppContextProvider({ initialState, children }) {
 
     const dispatch = {
         updateCookieValue,
+        updateCookieProgValue,
         resetCookie,
     };
 
