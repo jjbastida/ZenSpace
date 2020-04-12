@@ -3,8 +3,8 @@ export const homeData = {
         {
             type: 'banner',
             content: {
-                title: 'A Guide to Making Your Space Yours!',
-                body: 'Breathe easy with the help of guided mindful sessions, to balance your living space and create a purposeful place to call your own.',
+                title: 'A Free Guide to Making Your Space Yours!',
+                body: 'Breathe easy with the help of guided mindful sessions, to balance your living space and create a purposeful place to call your own; no sign-up required!',
                 imagePath: 'https://via.placeholder.com/350',
                 button: {
                     buttonLink: '',
@@ -17,7 +17,7 @@ export const homeData = {
             content: {
                 blocks: [
                     {
-                        title: 'Be inspired as you move through the 8 different personalized mindful exercises.',
+                        title: 'Be inspired as you move through the 8 different free personalized mindful exercises.',
                         imagePath: 'https://via.placeholder.com/350x200'
                     },
                     {
@@ -43,7 +43,7 @@ export const homeData = {
             type: 'one-column',
             content: {
                 title: 'Let’s get started!',
-                body: 'Work alongside our curated mindful activities to create a radiant and beautiful space for yourself today!',
+                body: 'Work alongside our free curated mindful activities to create a radiant and beautiful space for yourself today!',
                 button: {
                     buttonLink: '/getting-started/',
                     buttonText: 'Get Started'
