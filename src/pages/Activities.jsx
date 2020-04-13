@@ -65,10 +65,10 @@ export function Activities({ match }) {
 					grid-column: 3 / span 8;
 				`}
             >
-                <TypedContent type='h2' underline={true} stringstyle='margin-bottom: 3rem; display: inline-block;'>
+                <TypedContent type='h2' underline={true} stringstyle={`margin-bottom: 3rem; display: inline-block; ${MediaSmall}{ display: inline }`}>
                     {getActivity(slug).name}
                 </TypedContent>
-                <TypedContent type='h3' stringstyle='margin-bottom: 1rem;'>
+                <TypedContent type='h3' stringstyle={`margin-bottom: 1rem; display: inline-block; ${MediaSmall}{ margin-top: 2rem; }`}>
                     {activityContent[progressStep].title}
                 </TypedContent>
                 <ParseParagraphText content={activityContent[progressStep].body || null} />
