@@ -17,7 +17,7 @@ export const homeData = {
             content: {
                 blocks: [
                     {
-                        title: 'Be inspired as you move through the 8 different free personalized mindful exercises.'',
+                        title: 'Be inspired as you move through the 8 different free personalized mindful exercises.',
                         imagePath: '/images/Frame 7.png'
                     },
                     {
