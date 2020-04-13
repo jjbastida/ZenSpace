@@ -55,7 +55,7 @@ export function Walkthrough() {
 				stringstyle={`
 					grid-column: 3 / span 8;
 					width: 100%;
-					object-fit: cover;
+					object-fit: contain;
 					max-height: 55rem;
 					margin-bottom: 2rem;
 					${MediaSmall}{

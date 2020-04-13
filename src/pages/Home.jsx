@@ -53,13 +53,18 @@ export function Home() {
 			stringstyle={`
 			padding-top: 7rem;
 			padding-bottom: 7rem;
+			& > * {
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+			}
 			background-color: ${theme.backgroundSecondary};
 			`}
 			childrenSize='4'
 		>
 			{homeData.sections[1].content.blocks.length && homeData.sections[1].content.blocks.map(({ title, imagePath }, index) => (
 				<div key={title}>
-					<Image stringstyle={'width:100%; padding-bottom: 2rem;'} src={imagePath} />
+					<Image stringstyle={'width:100%; padding-bottom: 2rem; max-width: 35rem;'} src={imagePath} />
 					<TypedContent type='h4'>
 						{title}
 					</TypedContent>
@@ -78,7 +83,7 @@ export function Home() {
 					grid-column: auto / span 4;
 					width: 100%;
 				`}
-				src={homeData.sections[0].content.imagePath}
+				src={homeData.sections[2].content.imagePath}
 			/>
 
 			<Grid
